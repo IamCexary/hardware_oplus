@@ -27,31 +27,3 @@ cc_library_headers {
     vendor_available: true,
     export_include_dirs: ["include"],
 }
-
-cc_binary {
-    name: "vendor.lineage.livedisplay@2.1-service.oplus",
-    defaults: ["hidl_defaults"],
-    init_rc: ["vendor.lineage.livedisplay@2.1-service.oplus.rc"],
-    vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus.xml"],
-    relative_install_path: "hw",
-    srcs: [
-        ":vendor.lineage.livedisplay@2.0-sdm-pa",
-        ":vendor.lineage.livedisplay@2.0-sdm-utils",
-        ":vendor.lineage.livedisplay@2.1-oplus-se",
-        "service.cpp",
-    ],
-    shared_libs: [
-        "libbase",
-        "libbinder",
-        "libhidlbase",
-        "libutils",
-        "vendor.lineage.livedisplay@2.0",
-        "vendor.lineage.livedisplay@2.1",
-    ],
-    header_libs: [
-        "kernel_headers.oplus",
-        "vendor.lineage.livedisplay@2.0-sdm-headers",
-        "vendor.lineage.livedisplay@2.1-oplus-headers",
-    ],
-    proprietary: true,
-}
